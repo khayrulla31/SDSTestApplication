@@ -32,5 +32,20 @@ PATCH запрос на изменение объекта Student:
 DELETE запрос на удаление объекта Student:
   curl --location --request DELETE 'http://localhost:8080/student/deleteStudent/ivan'
 
+Регистрация пользователя:
+curl --location 'http://localhost:8080/auth/registration' \
+--header 'Content-Type: application/json' \
+--data '{
+    "userName":"stas",
+    "password":"12345"
+}'
+Авторизация пользователя(зарегистрированного) - возвращает access_token.
+curl --location 'http://localhost:8080/auth/login' \
+--header 'Content-Type: application/json' \
+--data '{
+    "userName":"stas",
+    "password":"12345"
+}'
+
 
 
