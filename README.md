@@ -7,11 +7,14 @@
   В IDE открыть приложение как новый проект и запустить TestApplication.java как SpringBoot приложение
 
 Приложение будет заущено на http://localhost:8080
+(для полноценной работы сервиса необходимо подключение к MongoDB порт:27017)
 
 GET запрос на получение списка всех объектов Student:
+
   curl --location 'http://localhost:8080/student/allStudents'
 
 POST запрос на добавление нового объекта Student:
+
   curl --location 'http://localhost:8080/student/addNewStudent' \
   --header 'Content-Type: application/json' \
   --data '{
@@ -23,6 +26,7 @@ POST запрос на добавление нового объекта Student:
   }'
 
 PATCH запрос на изменение объекта Student:
+
   curl --location --request PATCH 'http://localhost:8080/student/alterStudent/ivan' \
   --header 'Content-Type: application/json' \
   --data '{
@@ -30,9 +34,11 @@ PATCH запрос на изменение объекта Student:
   }'
 
 DELETE запрос на удаление объекта Student:
+
   curl --location --request DELETE 'http://localhost:8080/student/deleteStudent/ivan'
 
 Регистрация пользователя:
+
 curl --location 'http://localhost:8080/auth/registration' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -40,6 +46,7 @@ curl --location 'http://localhost:8080/auth/registration' \
     "password":"12345"
 }'
 Авторизация пользователя(зарегистрированного) - возвращает access_token.
+
 curl --location 'http://localhost:8080/auth/login' \
 --header 'Content-Type: application/json' \
 --data '{
